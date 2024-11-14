@@ -12,7 +12,6 @@ const nodeActiveColor = '#ffa502';
 const successorColor = '#ff6348';
 // 상위 node & edge color
 const predecessorsColor = '#1e90ff';
-
 const data = [
     {
         "data": {
@@ -30,7 +29,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "ISSUE-packageJson->STUDY-npmInit", "source": "1", "target": "2" }
+        "data": { "id": "ISSUE-packageJson->STUDY-npmInit", "source": "2", "target": "1" }
     },
     {
         "data": {
@@ -40,7 +39,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test", "source": "1", "target": "3" }
+        "data": { "id": "test", "source": "3", "target": "1" }
     },
     {
         "data": {
@@ -50,7 +49,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test1", "source": "1", "target": "4" }
+        "data": { "id": "test1", "source": "4", "target": "1" }
     },
     {
         "data": {
@@ -60,7 +59,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test2", "source": "3", "target": "5" }
+        "data": { "id": "test2", "source": "5", "target": "3" }
     },
     {
         "data": {
@@ -70,7 +69,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test3", "source": "3", "target": "6" }
+        "data": { "id": "test3", "source": "6", "target": "3" }
     },
     {
         "data": {
@@ -80,7 +79,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test4", "source": "3", "target": "7" }
+        "data": { "id": "test4", "source": "7", "target": "3" }
     },
     {
         "data": {
@@ -90,7 +89,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test5", "source": "3", "target": "8" }
+        "data": { "id": "test5", "source": "8", "target": "3" }
     },
     {
         "data": {
@@ -100,7 +99,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test6", "source": "3", "target": "9" }
+        "data": { "id": "test6", "source": "9", "target": "3" }
     },
     {
         "data": {
@@ -110,7 +109,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test7", "source": "3", "target": "10" }
+        "data": { "id": "test7", "source": "10", "target": "3" }
     },
     {
         "data": {
@@ -120,7 +119,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test8", "source": "2", "target": "11" }
+        "data": { "id": "test8", "source": "11", "target": "2" }
     },
     {
         "data": {
@@ -130,7 +129,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test9", "source": "2", "target": "12" }
+        "data": { "id": "test9", "source": "12", "target": "2" }
     },
     {
         "data": {
@@ -140,7 +139,7 @@ const data = [
         }
     },
     {
-        "data": { "id": "test10", "source": "2", "target": "13" }
+        "data": { "id": "test10", "source": "13", "target": "2" }
     },
     {
         "data": {
@@ -150,10 +149,25 @@ const data = [
         }
     },
     {
-        "data": { "id": "test11", "source": "2", "target": "14" }
+        "data": { "id": "test11", "source": "14", "target": "2" }
     },
-]
-// 아래는 공식 사이트에 올라와 있는 예제 코드입니다
+];
+
+
+              
+const cy_for_rank = cytoscape({
+    elements: data
+});
+// rank를 활용하기 위해 data만 입력한 cytoscape 객체입니다
+
+const pageRank = cy_for_rank.elements().pageRank();
+// elements들의 rank들입니다.
+
+const nodeMaxSize = 20;
+const nodeMinSize = 5;
+const fontMaxSize = 8;
+const fontMinSize = 5;
+
 const cy = cytoscape({
 
     container: document.getElementById('cy'), // container to render in
@@ -165,18 +179,27 @@ const cy = cytoscape({
             selector: 'node',
             style: {
                 'background-color': nodeColor,
-                'label': 'data(title)'
+                'label': 'data(title)', 
+                'width': function (ele) {
+                    return nodeMaxSize *  pageRank.rank('#' + ele.id())  + nodeMinSize;
+                },
+                'height': function (ele) {
+                    return nodeMaxSize *  pageRank.rank('#' + ele.id()) + nodeMinSize;
+                },
+                'font-size': function (ele) {
+                    return fontMaxSize *   pageRank.rank('#' + ele.id()) + fontMinSize;
+                }
             }
         },
 
         {
             selector: 'edge',
             style: {
-                'width': 3,
+                'width': 1,
                 'curve-style': 'bezier',
                 'line-color': '#ccc',
-                'target-arrow-color': '#ccc',
-                'target-arrow-shape': 'vee'
+                'source-arrow-color': '#ccc',
+                'source-arrow-shape': 'vee'
             }
         }
     ],
