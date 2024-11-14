@@ -37,8 +37,7 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
-       // 추가된 부분
-       {
+      {
         test: /\.json$/,
         type: "javascript/auto",
         loader: "file-loader",
@@ -50,8 +49,11 @@ module.exports = {
         ]
       },
       {
-        test:/\.ico$/,
-        loader:"file-loader?name=[name].[ext]",
+        test: /\.ico$/,
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]"
+        }
       }
     ]
   },
