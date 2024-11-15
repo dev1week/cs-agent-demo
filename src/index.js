@@ -959,36 +959,6 @@ refreshButton.addEventListener('click', function () {
     }).run();
 });
 
-let sourceNode = null; // 간선의 시작 노드를 저장할 변수
-
-// 노드에서 마우스다운 시 시작 노드를 설정
-cy.on('mousedown', 'node', function (e) {
-    sourceNode = e.target;
-});
-
-// 마우스업 시 간선 생성
-cy.on('mouseup', 'node', function (e) {
-    const targetNode = e.target;
-
-    // 시작 노드와 끝 노드가 존재하고 서로 다를 때만 간선 생성
-    if (sourceNode && sourceNode !== targetNode) {
-        // 간선 ID를 고유하게 생성
-        const edgeId = `edge-${sourceNode.id()}-${targetNode.id()}`;
-
-        // 간선 추가
-        cy.add({
-            group: 'edges',
-            data: {
-                id: edgeId,
-                source: sourceNode.id(),
-                target: targetNode.id()
-            }
-        });
-
-        // 간선 생성 후 sourceNode 초기화
-        sourceNode = null;
-    }
-});
 
 // 마우스가 캔버스나 다른 요소에서 올라갔을 때 시작 노드 초기화
 cy.on('mouseup', function (e) {
