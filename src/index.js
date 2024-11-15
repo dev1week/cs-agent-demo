@@ -161,9 +161,9 @@ const edgeWidth = '2px';
 const arrowScale = 0.8;
 const edgeColor = '#b2ebf2';
 const nodeColor = '#00796b';
-const nodeActiveColor = '#00bcd4';
+const nodeActiveColor = '#0288d1';
 const successorColor = '#4fc3f7';
-const predecessorsColor = '#0288d1';
+const predecessorsColor = '#00bcd4';
 
 const cy = cytoscape({
     container: document.getElementById('cy'),
@@ -442,4 +442,71 @@ cy.on('grab', 'node', function (e) {
     node.on('free', function () {
         cy.fit(); // 그래프를 전체 화면에 맞추기
     });
+});
+// 새로고침 버튼 생성 및 스타일 설정
+const refreshButton = document.createElement('div');
+refreshButton.id = 'refreshButton';
+refreshButton.style.width = '50px';
+refreshButton.style.height = '50px';
+refreshButton.style.borderRadius = '50%';
+refreshButton.style.backgroundColor = '#00796b';
+refreshButton.style.color = '#FFFFFF';
+refreshButton.style.display = 'flex';
+refreshButton.style.justifyContent = 'center';
+refreshButton.style.alignItems = 'center';
+refreshButton.style.position = 'fixed';
+refreshButton.style.bottom = '20px';
+refreshButton.style.right = '20px';
+refreshButton.style.cursor = 'pointer';
+refreshButton.style.fontSize = '20px';
+refreshButton.style.fontWeight = 'bold';
+refreshButton.innerText = '⟳';
+document.body.appendChild(refreshButton);
+
+
+refreshButton.addEventListener('click', function () {
+    cy.layout({
+        name: 'cose-bilkent', // `cose-bilkent` 레이아웃을 사용해 그래프 재정렬
+        animate: true,         // 애니메이션을 사용하여 부드럽게 정렬
+        fit: true,             // 정렬 후 화면에 맞춤
+        padding: 5            // 그래프와 화면 가장자리 간 여백 설정
+    }).run();
+});
+
+let sourceNode = null; // 간선의 시작 노드를 저장할 변수
+
+// 노드에서 마우스다운 시 시작 노드를 설정
+cy.on('mousedown', 'node', function (e) {
+    sourceNode = e.target;
+});
+
+// 마우스업 시 간선 생성
+cy.on('mouseup', 'node', function (e) {
+    const targetNode = e.target;
+
+    // 시작 노드와 끝 노드가 존재하고 서로 다를 때만 간선 생성
+    if (sourceNode && sourceNode !== targetNode) {
+        // 간선 ID를 고유하게 생성
+        const edgeId = `edge-${sourceNode.id()}-${targetNode.id()}`;
+
+        // 간선 추가
+        cy.add({
+            group: 'edges',
+            data: {
+                id: edgeId,
+                source: sourceNode.id(),
+                target: targetNode.id()
+            }
+        });
+
+        // 간선 생성 후 sourceNode 초기화
+        sourceNode = null;
+    }
+});
+
+// 마우스가 캔버스나 다른 요소에서 올라갔을 때 시작 노드 초기화
+cy.on('mouseup', function (e) {
+    if (e.target === cy) {
+        sourceNode = null; // 캔버스에서 마우스 업 시 초기화
+    }
 });
