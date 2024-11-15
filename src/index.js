@@ -148,6 +148,465 @@ const data = [
     {
         "data": { "id": "test11", "source": "2", "target": "14" }
     },
+    {
+        "data": {
+            "id": "OS1",
+            "title": "Operating System",
+            "position": { "x": 100, "y": 100 }
+        }
+    },
+    {
+        "data": {
+            "id": "OS2",
+            "title": "프로세스 관리"
+        }
+    },
+    {
+        "data": {
+            "id": "OS3",
+            "title": "메모리 관리"
+        }
+    },
+    {
+        "data": {
+            "id": "OS4",
+            "title": "저장장치 관리"
+        }
+    },
+    {
+        "data": {
+            "id": "OS5",
+            "title": "스케줄링"
+        }
+    },
+    {
+        "data": {
+            "id": "OS6",
+            "title": "CPU 스케줄러"
+        }
+    },
+    {
+        "data": { "id": "edge0", "source": "OS1", "target": "OS2" }
+    },
+    {
+        "data": { "id": "edge1", "source": "OS1", "target": "OS3" }
+    },
+    {
+        "data": { "id": "edge2", "source": "OS1", "target": "OS4" }
+    },
+    {
+        "data": { "id": "edge3", "source": "OS1", "target": "OS5" }
+    },
+    {
+        "data": { "id": "edge4", "source": "OS1", "target": "OS6" }
+    },
+    {
+        "data": {
+            "id": "OS2_1",
+            "title": "프로세스와 스레드"
+        }
+    },
+    {
+        "data": {
+            "id": "OS2_2",
+            "title": "CPU 스케줄링"
+        }
+    },
+    {
+        "data": {
+            "id": "OS2_3",
+            "title": "프로세스 동기화"
+        }
+    },
+    {
+        "data": {
+            "id": "OS2_4",
+            "title": "교착 상태"
+        }
+    },
+    {
+        "data": {
+            "id": "OS2_5",
+            "title": "멀티스레딩"
+        }
+    },
+    {
+        "data": { "id": "edge5", "source": "OS2", "target": "OS2_1" }
+    },
+    {
+        "data": { "id": "edge6", "source": "OS2", "target": "OS2_2" }
+    },
+    {
+        "data": { "id": "edge7", "source": "OS2", "target": "OS2_3" }
+    },
+    {
+        "data": { "id": "edge8", "source": "OS2", "target": "OS2_4" }
+    },
+    {
+        "data": { "id": "edge9", "source": "OS2", "target": "OS2_5" }
+    },
+    {
+        "data": {
+            "id": "OS3_1",
+            "title": "메모리란"
+        }
+    },
+    {
+        "data": {
+            "id": "OS3_2",
+            "title": "물리 메모리"
+        }
+    },
+    {
+        "data": {
+            "id": "OS3_3",
+            "title": "가상 메모리"
+        }
+    },
+    {
+        "data": {
+            "id": "OS3_4",
+            "title": "페이징 기법"
+        }
+    },
+    {
+        "data": { "id": "edge10", "source": "OS3", "target": "OS3_1" }
+    },
+    {
+        "data": { "id": "edge11", "source": "OS3", "target": "OS3_2" }
+    },
+    {
+        "data": { "id": "edge12", "source": "OS3", "target": "OS3_3" }
+    },
+    {
+        "data": { "id": "edge13", "source": "OS3", "target": "OS3_4" }
+    },
+    {
+        "data": {
+            "id": "OS4_1",
+            "title": "입출력 시스템"
+        }
+    },
+    {
+        "data": {
+            "id": "OS4_2",
+            "title": "저장장치"
+        }
+    },
+    {
+        "data": { "id": "edge14", "source": "OS4", "target": "OS4_1" }
+    },
+    {
+        "data": { "id": "edge15", "source": "OS4", "target": "OS4_2" }
+    },
+    {
+        "data": {
+            "id": "OS6_1",
+            "title": "FCFS (First-Come, First-Served)"
+        }
+    },
+    {
+        "data": {
+            "id": "OS6_2",
+            "title": "SJF (Shortest Job First)"
+        }
+    },
+    {
+        "data": { "id": "edge16", "source": "OS6", "target": "OS6_1" }
+    },
+    {
+        "data": { "id": "edge17", "source": "OS6", "target": "OS6_2" }
+    },
+    {
+        "data": {
+            "id": "Network1",
+            "title": "Network",
+            "position": { "x": 100, "y": 100 }
+        }
+    },
+    {
+        "data": {
+            "id": "Network1",
+            "title": "Network",
+            "position": { "x": 100, "y": 100 }
+        }
+    },
+    {
+        "data": {
+            "id": "Network2",
+            "title": "Web"
+        }
+    },
+    {
+        "data": {
+            "id": "Network3",
+            "title": "응용 계층"
+        }
+    },
+    {
+        "data": {
+            "id": "Network4",
+            "title": "전송 계층"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5",
+            "title": "네트워크 계층"
+        }
+    },
+    {
+        "data": { "id": "edge100", "source": "Network1", "target": "Network2" }
+    },
+    {
+        "data": { "id": "edge101", "source": "Network1", "target": "Network3" }
+    },
+    {
+        "data": { "id": "edge102", "source": "Network1", "target": "Network4" }
+    },
+    {
+        "data": { "id": "edge103", "source": "Network1", "target": "Network5" }
+    },
+    {
+        "data": {
+            "id": "Network2_1",
+            "title": "웹 통신 흐름"
+        }
+    },
+    {
+        "data": {
+            "id": "Network2_2",
+            "title": "RESTful"
+        }
+    },
+    {
+        "data": {
+            "id": "Network2_3",
+            "title": "Web Server (Apache, Nginx)"
+        }
+    },
+    {
+        "data": {
+            "id": "Network2_4",
+            "title": "Cookie & Session"
+        }
+    },
+    {
+        "data": { "id": "edge104", "source": "Network2", "target": "Network2_1" }
+    },
+    {
+        "data": { "id": "edge105", "source": "Network2", "target": "Network2_2" }
+    },
+    {
+        "data": { "id": "edge106", "source": "Network2", "target": "Network2_3" }
+    },
+    {
+        "data": { "id": "edge107", "source": "Network2", "target": "Network2_4" }
+    },
+    {
+        "data": {
+            "id": "Network3_1",
+            "title": "DNS"
+        }
+    },
+    {
+        "data": {
+            "id": "Network3_2",
+            "title": "도메인 서버와 네임서버"
+        }
+    },
+    {
+        "data": {
+            "id": "Network3_3",
+            "title": "URI"
+        }
+    },
+    {
+        "data": {
+            "id": "Network3_4",
+            "title": "HTTP"
+        }
+    },
+    {
+        "data": {
+            "id": "Network3_5",
+            "title": "HTTP/1.1, HTTP/2.0"
+        }
+    },
+    {
+        "data": {
+            "id": "Network3_6",
+            "title": "HTTPS"
+        }
+    },
+    {
+        "data": { "id": "edge108", "source": "Network3", "target": "Network3_1" }
+    },
+    {
+        "data": { "id": "edge109", "source": "Network3", "target": "Network3_2" }
+    },
+    {
+        "data": { "id": "edge110", "source": "Network3", "target": "Network3_3" }
+    },
+    {
+        "data": { "id": "edge111", "source": "Network3", "target": "Network3_4" }
+    },
+    {
+        "data": { "id": "edge112", "source": "Network3", "target": "Network3_5" }
+    },
+    {
+        "data": { "id": "edge113", "source": "Network3", "target": "Network3_6" }
+    },
+    {
+        "data": {
+            "id": "Network4_1",
+            "title": "PORT"
+        }
+    },
+    {
+        "data": {
+            "id": "Network4_2",
+            "title": "NAPT"
+        }
+    },
+    {
+        "data": {
+            "id": "Network4_3",
+            "title": "NAT"
+        }
+    },
+    {
+        "data": {
+            "id": "Network4_4",
+            "title": "TCP"
+        }
+    },
+    {
+        "data": {
+            "id": "Network4_5",
+            "title": "3-way handshake, 4-way handshake"
+        }
+    },
+    {
+        "data": {
+            "id": "Network4_6",
+            "title": "UDP"
+        }
+    },
+    {
+        "data": {
+            "id": "Network4_7",
+            "title": "TCP의 오류, 혼잡, 흐름 제어 (ARQ, 슬라이딩 윈도우, 혼잡제어)"
+        }
+    },
+    {
+        "data": { "id": "edge114", "source": "Network4", "target": "Network4_1" }
+    },
+    {
+        "data": { "id": "edge115", "source": "Network4", "target": "Network4_2" }
+    },
+    {
+        "data": { "id": "edge116", "source": "Network4", "target": "Network4_3" }
+    },
+    {
+        "data": { "id": "edge117", "source": "Network4", "target": "Network4_4" }
+    },
+    {
+        "data": { "id": "edge118", "source": "Network4", "target": "Network4_5" }
+    },
+    {
+        "data": { "id": "edge119", "source": "Network4", "target": "Network4_6" }
+    },
+    {
+        "data": { "id": "edge120", "source": "Network4", "target": "Network4_7" }
+    },
+    {
+        "data": {
+            "id": "Network5_1",
+            "title": "IPv4, IPv6"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5_2",
+            "title": "서브넷 마스크"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5_3",
+            "title": "CIDR 표기법"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5_4",
+            "title": "공인 IP와 사설 IP"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5_5",
+            "title": "정적 주소 할당과 동적 주소 할당"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5_6",
+            "title": "라우터"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5_7",
+            "title": "정적 라우팅"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5_8",
+            "title": "동적 라우팅"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5_9",
+            "title": "IGP (RIP, OSPF)"
+        }
+    },
+    {
+        "data": {
+            "id": "Network5_10",
+            "title": "EGP (BGP)"
+        }
+    },
+    {
+        "data": { "id": "edge121", "source": "Network5", "target": "Network5_1" }
+    },
+    {
+        "data": { "id": "edge122", "source": "Network5", "target": "Network5_2" }
+    },
+    {
+        "data": { "id": "edge123", "source": "Network5", "target": "Network5_3" }
+    },
+    {
+        "data": { "id": "edge124", "source": "Network5", "target": "Network5_4" }
+    },
+    {
+        "data": { "id": "edge125", "source": "Network5", "target": "Network5_5" }
+    },
+    {
+        "data": { "id": "edge126", "source": "Network5", "target": "Network5_6" }
+    },
+    {
+        "data": { "id": "edge127", "source": "Network5", "target": "Network5_7" }
+    },
+    {
+        "data": { "id": "edge128", "source": "Network5", "target": "Network5_8" }
+    },
+    {
+        "data": { "id": "edge129", "source": "Network5", "target": "Network5_9" }
+    }
 ];
 
 const cy_for_rank = cytoscape({ elements: data });
@@ -164,7 +623,6 @@ const nodeColor = '#00796b';
 const nodeActiveColor = '#0288d1';
 const successorColor = '#4fc3f7';
 const predecessorsColor = '#00bcd4';
-
 const cy = cytoscape({
     container: document.getElementById('cy'),
     elements: data,
@@ -174,11 +632,12 @@ const cy = cytoscape({
             style: {
                 'background-color': nodeColor,
                 'label': 'data(title)',
-                'width': 20,
-                'height': 20,
-                },
-                'font-size': 10,
-            
+                'width': 30, // Increase node width
+                'height': 30, // Increase node height
+                'font-size': 8, // Increase font size for readability
+                'text-valign': 'center', // Center label vertically
+                'text-halign': 'center' // Center label horizontally
+            }
         },
         {
             selector: 'edge',
@@ -195,11 +654,38 @@ const cy = cytoscape({
     layout: {
         name: 'cose-bilkent',
         animate: false,
-        gravityRangeCompound: 1.5,
+        gravityRangeCompound: 2.0, // Adjust gravity to allow more spacing between compound nodes
+        nodeRepulsion: 4500, // Increase repulsion to spread nodes apart
+        idealEdgeLength: 100, // Set a larger edge length to space nodes further apart
         fit: true,
         tile: true
     }
 });
+
+
+
+// Adjust font size initially
+
+// Add event listener for zoom
+// Automatically find all root nodes (nodes with no incoming edges)
+const rootNodes = cy.nodes().filter(node => node.incomers('edge').length === 0);
+rootNodes.forEach(rootNode => {
+    rootNode.style('font-size', '20px'); // Set font size for each root node
+});
+
+// Function to adjust font size for non-root nodes based on zoom level
+function adjustFontSize() {
+    const zoomLevel = cy.zoom();
+    const baseFontSize = 10; // Base font size for non-root nodes when zoom is 1
+    const scaledFontSize = Math.max(baseFontSize * zoomLevel, 5); // Ensure a minimum font size of 5
+
+    // Apply dynamic font size to nodes that are not root nodes
+    cy.nodes().not(rootNodes).style('font-size', `${scaledFontSize}px`);
+}
+adjustFontSize();
+
+
+// Func
 
 cy.on('tap', function (e) {
     const url = e.target.data('url');
@@ -282,17 +768,17 @@ cy.on('mouseover', 'node', function (e) {
     // 스타일 적용: 노드 배경색과 글자 스타일
     node.style({
         'background-color': nodeActiveColor, // 현재 노드 배경 하이라이트
-        'color':  nodeActiveColor, // 현재 노드 글자 색상 하이라이트
+        'color':  '#b81414', // 현재 노드 글자 색상 하이라이트
         'font-weight': 'bold' // 글자 굵기
     });
     predecessors.style({
         'background-color': predecessorsColor, // 상위 노드 배경 하이라이트
-        'color': predecessorsColor, // 상위 노드 글자 색상 하이라이트
+        'color': '#b81414', // 상위 노드 글자 색상 하이라이트
         'font-weight': 'bold'
     });
     successors.style({
         'background-color': successorColor, // 하위 노드 배경 하이라이트
-        'color': successorColor, // 하위 노드 글자 색상 하이라이트
+        'color': '#b81414', // 하위 노드 글자 색상 하이라이트
         'font-weight': 'bold'
     });
 });
